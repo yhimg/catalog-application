@@ -1,4 +1,4 @@
-package com.omnirio.catalogapplication.model;
+package com.omnirio.catalogapplication.model.common;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.omnirio.catalogapplication.model;
+package com.omnirio.catalogapplication.model.product;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,13 +19,16 @@ import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.omnirio.catalogapplication.model.category.Category;
+import com.omnirio.catalogapplication.model.common.Auditable;
+
 @Data
 @Builder
 @DynamicUpdate
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "product")
-public class Product extends Auditable{
+public class Product extends Auditable {
 
 	@Id
 	@Column(name = "id")

@@ -1,4 +1,4 @@
-package com.omnirio.catalogapplication.model;
+package com.omnirio.catalogapplication.model.category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.omnirio.catalogapplication.model.product.Product;
+import com.omnirio.catalogapplication.model.common.Auditable;
 
 @Data
 @Builder

@@ -1,4 +1,4 @@
-package com.omnirio.catalogapplication.model;
+package com.omnirio.catalogapplication.model.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,13 +16,15 @@ import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.omnirio.catalogapplication.model.common.Auditable;
+
 @Data
 @Builder
 @DynamicUpdate
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "category_attributes")
-public class CategoryAttributes extends Auditable {
+@Entity(name = "product_attributes")
+public class ProductAttributes extends Auditable {
 
 	@Id
 	@Column(name = "id")
@@ -30,8 +32,8 @@ public class CategoryAttributes extends Auditable {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "category_id", nullable = false)
-	private Category category;
+	@JoinColumn(name = "product_id", nullable = false)
+	private Product product;
 
 	@Column(name = "uuid", nullable = false, unique = true)
 	private String uuid;
