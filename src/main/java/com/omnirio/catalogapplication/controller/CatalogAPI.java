@@ -27,5 +27,4 @@ public interface CatalogAPI {
 
 	@PostMapping("/category/{categoryId}/attributes")
 	List<CategoryAttributeWS> createCategoryAttributesByCategoryId(@PathVariable @Valid Long categoryId, @RequestBody @Valid List<CategoryAttributeWS> categoryAttributeWS);
-
 }
