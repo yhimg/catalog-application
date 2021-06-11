@@ -1,5 +1,7 @@
 package com.omnirio.catalogapplication.service.category;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,5 +26,12 @@ public class CategoryServiceImpl implements CategoryService{
 		Category category = categoryWSBuilder.categoryWSToEntityBuilder(categoryWS);
 		Category savedCategory = categoryRepository.save(category);
 		return categoryWSBuilder.categoryEntityToWSBuilder(savedCategory);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<CategoryWS> getCategoryById(Long categoryId) {
+		Optional<Category> savedCategory = categoryRepository.findById(categoryId);
+		return savedCategory.isPresent() ? Optional.ofNullable(categoryWSBuilder.categoryEntityToWSBuilder(savedCategory.get())) : Optional.empty();
 	}
 }

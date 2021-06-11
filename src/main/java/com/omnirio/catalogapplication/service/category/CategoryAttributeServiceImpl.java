@@ -2,6 +2,7 @@ package com.omnirio.catalogapplication.service.category;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,17 @@ public class CategoryAttributeServiceImpl implements CategoryAttributeService{
 
 	@Autowired
 	private CategoryWSBuilder categoryWSBuilder;
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<CategoryAttributeWS> getCategoryAttributesByCategoryId(Long categoryId) {
+		List<CategoryAttributes> categoryAttributesList = categoryAttributesRepository.findAllByCategoryId(categoryId);
+		if(Objects.isNull(categoryAttributesList) || categoryAttributesList.isEmpty())
+			return new ArrayList<>();
+		return categoryAttributesList.stream()
+				.map(attribute -> categoryAttributeWSBuilder.categoryAttributeEntityToWSBuilder(attribute))
+				.collect(Collectors.toList());
+	}
 
 	@Override
 	@Transactional
