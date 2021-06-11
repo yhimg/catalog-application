@@ -16,7 +16,7 @@
 | 7 |/product | GET | Display all products, their attributes and category attributes|
 
 
-###Dummy Data for APIs:
+### Dummy Data for APIs:
 
 1. ```json
    {
@@ -55,7 +55,7 @@
         ]
     }
    
-##SQL Queries to Create Table:
+## SQL Queries to Create Table:
 
 ```mysql
 CREATE TABLE `category` (
